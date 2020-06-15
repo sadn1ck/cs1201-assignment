@@ -22,19 +22,16 @@ int main()
         return 0;
     }
 
-    /*
-     * Logic to count characters, words and lines.
-     */
     characters = words = lines = 0;
     while ((ch = fgetc(file)) != EOF)
     {
         characters++;
 
-        /* Check new line */
+        // Check new line
         if (ch == '\n' || ch == '\0')
             lines++;
 
-        /* Check words */
+        //  Check word
         if (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\0')
             words++;
     }
