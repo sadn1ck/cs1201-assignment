@@ -14,8 +14,8 @@ int main(){
     int n;
     printf("Operation:\n 1. Addition\n 2. Subtraction\n 3. Multiplication\n 4. Division \n");
     scanf("%d",&n);
-    if(n==1) printf("%f + i%f", a+b, x+y);
-    else if(n==2) printf("%f + i%f", a-b, x-y);
+    if(n==1) printf("%f + i%f", a+x, b+y);
+    else if(n==2) printf("%f + i%f", a-x, b-y);
     else if(n==3) printf("%f + i%f", a*x - b*y, a*y + b*x);
     else if(n==4) printf("%f + i%f", (a*x + b*y)/sqrt( x*x + y*y ), (b*x - a*y)/sqrt( x*x + y*y ));
     printf("\n");
