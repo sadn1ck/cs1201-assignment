@@ -14,7 +14,7 @@ void main(){
     printf("Enter file path (if it in the same directory enter the name) : ");
     scanf("%[^\n]%*c", path);
     if ((fptr = fopen(path,"a")) == NULL){
-           printf("Error! opening file");
+           printf("Error opening file!");
            exit(1);
     }
     struct student stud;
