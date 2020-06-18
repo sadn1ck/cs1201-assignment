@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-int main(){ 
+int main(){
     float a,b,x,y;
     printf("Enter First Number: \nReal Part = ");
     scanf("%f",&a);
@@ -17,7 +17,7 @@ int main(){
     if(n==1) printf("%f + i%f", a+x, b+y);
     else if(n==2) printf("%f + i%f", a-x, b-y);
     else if(n==3) printf("%f + i%f", a*x - b*y, a*y + b*x);
-    else if(n==4) printf("%f + i%f", (a*x + b*y)/sqrt( x*x + y*y ), (b*x - a*y)/sqrt( x*x + y*y ));
+    else if(n==4) printf("%f + i%f", (a*x + b*y)/( x*x + y*y ), (b*x - a*y)/( x*x + y*y ));
     printf("\n");
     return 0;
 }
