@@ -3,11 +3,11 @@
 #define INT_BITS 32
 int rotateLR(int n, unsigned int d, int b)
 {
-    if(b==1){
-       return (n << d) | (n >> (INT_BITS - d));
+    if(d==1){
+       return (n << b) | (n >> (INT_BITS - b));
     }
     else{
-        return (n >> d) | (n << (INT_BITS - d));
+        return (n >> b) | (n << (INT_BITS - b));
     }
 }
 int main(){
