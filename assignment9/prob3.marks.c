@@ -1,4 +1,3 @@
-//sanandita001: Please note file name "records.dat" should be same as filename in assignment9/prob2.c
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h>
@@ -15,7 +14,13 @@ int main ()
         FILE *infile; 
         struct record input[10],temp;
         
-        infile = fopen("records.dat","r");
+        printf("Enter file path to read (if it in the same directory enter the name) : ");
+        scanf("%[^\n]%*c", path);
+        if ((infile = fopen(path,"r")) == NULL)
+        {
+            printf("Error opening file!");
+            exit(1);
+        }
       
         int count = 0;
         while(fread(&input[count], sizeof(struct record), 1, infile))
@@ -35,14 +40,20 @@ int main ()
                }
            }
        }
-       for(int i=0;i<count;i++)
+       /*for(int i=0;i<count;i++)
        {
            printf ("name = %s roll = %d marks = %d\n", input[i].name, 
                            input[i].roll, input[i].marks);
-       }
+       }*/                                                                                      //To print data after sorting
 
        FILE *outfile;
-       outfile = fopen ("sorted_records_marks.dat", "w"); 
+       printf("Enter file path to write (if it in the same directory enter the name) : ");
+       scanf("%[^\n]%*c", path);
+       if ((outfile = fopen(path,"w")) == NULL)
+       {
+           printf("Error opening file!");
+           exit(1);
+       } 
 
        fwrite(&input, sizeof(struct record), count, outfile);
       
