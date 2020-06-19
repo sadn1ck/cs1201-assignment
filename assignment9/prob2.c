@@ -13,7 +13,7 @@ void main(){
     FILE *fptr;
     printf("Enter file path (if it in the same directory enter the name) : ");
     scanf("%[^\n]%*c", path);
-    if ((fptr = fopen(path,"a")) == NULL){
+    if ((fptr = fopen(path,"ab")) == NULL){
            printf("Error opening file!");
            exit(1);
     }
