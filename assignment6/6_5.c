@@ -1,7 +1,23 @@
 #include <stdio.h>
 #include <math.h>
-void bitInvert(unsigned int a, unsigned int b, unsigned int c){
-    // assuming a is in binary
+#define ull unsigned long long int
+
+int decimalToBinary(int N)
+{
+    ull B_Number = 0;
+    int cnt = 0;
+    while (N != 0)
+    {
+        int rem = N % 2;
+        ull c = pow(10, cnt);
+        B_Number += rem * c;
+        N /= 2;
+        cnt++;
+    }
+    return B_Number;
+}
+void bitInvert(unsigned int n, unsigned int b, unsigned int c){
+    ull a = decimalToBinary(n);
     int len =floor(log10(abs(a))) + 1; //last position
     // printf("%d\n", len);
     int from = b;
@@ -21,7 +37,7 @@ void bitInvert(unsigned int a, unsigned int b, unsigned int c){
 }
 int main(){
     int a,b,c;
-    printf("Enter a number in binary: ");
+    printf("Enter a number : ");
     scanf("%d", &a);
     printf("Enter index where inverting starts : ");
     scanf("%d", &b);
