@@ -8,6 +8,12 @@ int main()
     char arr2[15];
 
     //checking the address
+    printf("Data       Memory occupied in byte\n");
+    printf("int a:                %d\n", sizeof(a));
+    printf("float b:              %d\n", sizeof(b));
+    printf("char c:               %d\n", sizeof(c));
+    printf("int arr[10]:          %d\n", sizeof(arr1));
+    printf("char ch[10]:          %d\n", sizeof(arr2));
     printf("Data         hex\t dec\n");
     printf("int a      :%x\t%d\n", &a, &a);
     printf("float b    :%x\t%d\n", &b, &b);
