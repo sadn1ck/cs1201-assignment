@@ -1,64 +1,66 @@
-#include<stdio.h>
- #include<stdbool.h>
-
- 
-int main() {
-    int n=20;
-    
-    int arr[n];
-     printf("Enter the  %d integers:\n",n);
-    for(int i=0;i<n;i++)
-    scanf("%d",&arr[i]);
-    int k=0;
-    int comp=0;
-    printf("Sorting the array using bubble sort\n");
-    for(int i=0;i<n-1;i++)
-   {
-       for(int j=0;j<n-i-1;j++)
-       {
-           if(arr[j+1]<arr[j])
-           {
-               int t=arr[j+1];
-               arr[j+1]=arr[j];
-               arr[j]=t;
-           }
-       }
-   }
-    while(1)
-    {
-        int x;
-        printf("Enter the number to be searched: ");
-        scanf("%d",&x);
-        bool found=false;
-        int low=0;
-        int high=n-1;
-        int mid=(low+high)/2;
-        while(low<=high)
-        {
-            comp++;
-            if(arr[mid]==x)
-            {
-                found=true;
-                break;
-            }
-            else if(arr[mid]>x)
-            {
-                high=mid-1;
-            }
-            else
-            low=mid+1;
-            mid=(high+low)/2;
-        }
-        if(found)
-        printf("%d is present is the array\n",x);
-        else
-        printf("%d is not present is the array\n",x);
-        k++;
-        if(k==10)
-        break;
+#include <stdio.h>
+//hashing algorithm
+int hashAlgorithm(int b){
+    int x;
+    x = b % 20;//hash func
+    return x;
+}
+//search algorithm
+void hashSearch(int hash[] , int b){
+    int x = hashAlgorithm(b);
+    if(hash[x] == b){
+        printf("Element Found at: %d\n",x+1);
+        return;
     }
-    float avg=(float)comp/(float)(10);
-    printf("The average number of comparisons after 10 searches is %f ",avg);
-    
+    else{
+        for(int i=0;i<26;i++){
+            if(hash[i] == b) {
+                printf("Element Found at: %d\n", i + 1);
+                return;
+            }
+        }
+    }
+    printf("Element Not Found!\n");
+}
+int main(){
+    int a[20] = {0, 5, 6, 10, 20, 2, 3, 25, 37, 36, 14, 15, 69, 12, 17, 18, 52, 23, 19, 89};
+    int hash[26] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+    //filling up hash table of 30% more size
+    int i,x,coll=0;
+    for(i=0;i<20;i++){
+        x = hashAlgorithm(a[i]);
+        if(hash[x] == -1)
+            hash[x] = a[i];
+        else {
+            coll++;
+            if(hash[x+1]==-1)
+                hash[x+1] = a[i];
+            else{
+                for(int j=0;j<26;j++){
+                    if(hash[j]==-1) {
+                        hash[j] = a[i];
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    //printing the hash table
+    printf("Hash Table:\n");
+    for(i=0;i<26;i++){
+        printf("%d  ",hash[i]);
+    }
+    printf("\n");
+    hashSearch(hash,5);
+    hashSearch(hash,20);
+    hashSearch(hash,1);
+    hashSearch(hash,36);
+    hashSearch(hash,19);
+    hashSearch(hash,17);
+    hashSearch(hash,18);
+    hashSearch(hash,6);
+    hashSearch(hash,2);
+    hashSearch(hash,37);
+    printf("Number of collisions are: %d\n",coll);
     return 0;
 }
