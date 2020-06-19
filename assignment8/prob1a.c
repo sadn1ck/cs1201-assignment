@@ -4,8 +4,8 @@ int main()
     int a;
     float b;
     char c;
-    int arr1[15];
-    char arr2[15];
+    int arr1[10];
+    char arr2[10];
 
     //checking the address
     printf("Data       Memory occupied in byte\n");
