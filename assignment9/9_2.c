@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 struct student {
-    char name[10];
+    char name[20];
     int rno;
     int marks;
 };
